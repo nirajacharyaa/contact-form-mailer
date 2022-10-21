@@ -1,0 +1,13 @@
+{
+  "name": "contact-me",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^6.8.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
