@@ -1,15 +1,19 @@
-require("dotenv").config();
+// commented for deployment for production uncomment dotenv
+// require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const app = express();
 
 const port = process.env.PORT || 5000;
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
-  res.send("hello");
+  res.json({
+    message: "Hello",
+  });
 });
 
 app.post("/api/v1/sendmail", (req, res) => {
