@@ -44,10 +44,11 @@ app.post("/api/v1/sendmail", (req, res) => {
   }
   sendEmail()
     .then(() => {
-      res.json({ success: true, message: "Email sent successfully" });
+      res.json({ success: true, message: "Email sent !" });
     })
     .catch((err) => {
-      res.json({ success: false, message: "error" + err.message });
+      console.log(err.message);
+      res.json({ success: false, message: "Email not sent !" });
     });
 });
 
