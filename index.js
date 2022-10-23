@@ -8,6 +8,7 @@ const limiter = require("./requestLimiter");
 const port = process.env.PORT || 5000;
 
 app.use(cors());
+app.use(limiter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
@@ -16,7 +17,7 @@ app.get("/", (req, res) => {
   });
 });
 
-app.post("/api/v1/sendmail", limiter, (req, res) => {
+app.post("/api/v1/sendmail", (req, res) => {
   const { name, email, message } = req.body;
   async function sendEmail() {
     // mail formatting
