@@ -4,7 +4,7 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const app = express();
-const rateLimiter = require("./requestLimiter");
+const limiter = require("./requestLimiter");
 const port = process.env.PORT || 5000;
 
 app.use(cors());
@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
   });
 });
 
-app.post("/api/v1/sendmail", rateLimiter, (req, res) => {
+app.post("/api/v1/sendmail", limiter, (req, res) => {
   const { name, email, message } = req.body;
   async function sendEmail() {
     // mail formatting
